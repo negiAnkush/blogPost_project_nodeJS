@@ -21,9 +21,10 @@ app.use(express.static("public"));
 
 // database mongoose conection
 mongoose.set("strictQuery", false);
-mongoose.connect('mongodb://localhost:27017/blogDB', {
+mongoose.connect("mongodb+srv://admin_ankush:Polaris1!@cluster0.18gs983.mongodb.net/blogDB", {
   useNewUrlParser: true
 });
+
 
 const postSchema = {
   title: String,
@@ -95,6 +96,6 @@ app.get("/posts/:postName", function(req, res) {
 
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
+app.listen(process.env.PORT || 3000, function(req, res){
+  console.log("server start at port 3000....");
 });
